@@ -1,3 +1,9 @@
 {
-    "python.pythonPath": "/home/clarinerd/anaconda3/envs/storm/bin/python"
+    "python.pythonPath": "/home/clarinerd/anaconda3/envs/storm/bin/python",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
 }
