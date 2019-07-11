@@ -3,3 +3,6 @@ __pycache__/*.pyc
 response.geojson
 tempCodeRunnerFile.py
 response.json
+storm.pem
+aws_ssh.txt
+Screenshot from 2019-07-10 16-18-36.png
