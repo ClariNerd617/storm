@@ -6,3 +6,6 @@ response.json
 storm.pem
 aws_ssh.txt
 Screenshot from 2019-07-10 16-18-36.png
+.pytest_cache/v/cache/nodeids
+.pytest_cache/v/cache/stepwise
+saved_data/
