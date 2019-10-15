@@ -1,4 +1,5 @@
-import datetime
+from datetime import datetime
+
+
 def timestamp():
-    now = datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
-    return now
+    return datetime.now().strftime('%Y-%m-%d_%H:%M:%S')

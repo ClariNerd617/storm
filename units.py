@@ -1,3 +1,5 @@
+# TODO Refactor with a map or a dict switcher or a lambda or something
+
 def c_to_f(temp_c):
     return round(((temp_c * (9/5)) + 32), 2)
 
