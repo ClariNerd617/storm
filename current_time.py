@@ -1,5 +1,5 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 def timestamp():
-    return datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
+    return datetime.now(timezone.utc).strftime('%Y-%m-%d_%H:%M:%S')
