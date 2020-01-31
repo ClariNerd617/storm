@@ -19,6 +19,8 @@ except decoder.JSONDecodeError as json_err:
 except Exception as err:
     print(err)
 
+
+conditions = get_conditions()
 vars = [
     "timestamp",
     "temperature",
@@ -26,18 +28,17 @@ vars = [
     "wind_direction",
     "wind_speed",
     "wind_gust",
-    # "baro_pressure",
-    "slp",
+    # "barometric_pressure",
+    "sea_level_pressure",
     # "visibility",
-    # "precip_past_hr",
-    # "precip_past_6hr",
-    "rel_h"
+    # "precipitation_past_hour",
+    # "precipitation_past_6hr",
+    "relative_humidity"
     # "wind_chill",
     # "heat_index"
 ]
 
-
-def save_data(data):
+def save_data(data: dict):
     if not os.path.isdir(f"saved_data/{buoy_id}"):
         os.system(f"mkdir saved_data/{buoy_id}")
     with open(f"saved_data/{buoy_id}/{ct.timestamp()}.json", "w", encoding="utf-8") as outfile:
@@ -46,17 +47,17 @@ def save_data(data):
 
 values = [
     ct.timestamp(),
-    units.c_to_f(conditions["temperature"]["value"]),
-    units.c_to_f(conditions["dewpoint"]["value"]),
-    round(conditions["windDirection"]["value"]),
-    units.mps_to_mph(conditions["windSpeed"]["value"]),
-    units.mps_to_mph(conditions["windGust"]["value"]),
+    units.c_to_f(conditions.get("temperature").get("value")),
+    units.c_to_f(conditions.get("dewpoint").get("value")),
+    round(conditions.get("windDirection").get("value")),
+    units.mps_to_mph(conditions.get("windSpeed").get("value")),
+    units.mps_to_mph(conditions.get("windGust").get("value")),
     # units.pa_to_mb(conditions["barometricPressure"]["value"]),
-    units.pa_to_mb(conditions["seaLevelPressure"]["value"]),
+    units.pa_to_mb(conditions.get("seaLevelPressure").get("value")),
     # units.m_to_mi(conditions["visibility"]["value"]),
     # units.m_to_in(conditions["precipitationLastHour"]["value"]),
     # units.m_to_in(conditions["precipitationLast6Hours"]["value"]),
-    round(conditions["relativeHumidity"]["value"], 2)
+    round(conditions.get("relativeHumidity").get("value"), 2)
     # units.c_to_f(conditions["windChill"]["value"]),
     # units.c_to_f(conditions["heatIndex"]["value"])
 ]
