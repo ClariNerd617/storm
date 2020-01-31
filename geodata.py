@@ -48,7 +48,7 @@ def format_address():
     return f"{street_number}{SPACE}{street},{SPACE}{municipality},{SPACE}{state_abbrev}"
 
 
-def get_location_from_address(address: string = format_address(), test: bool = False):
+def get_location_from_address(address: str = format_address(), test: bool = False):
     url = "https://maps.googleapis.com/maps/api/geocode/json"
     url += f"?address={address}&key={google_maps_api_key}"
     try:

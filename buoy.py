@@ -1,13 +1,13 @@
 # TODO REFACTOR as a python wrapper for the NWS API
-
+from datetime import datetime
 import requests
 from json import dump, decoder
 import units
 import os
-import current_time as ct
 
 buoy_id = input("Enter Buoy ID Number e.g. 42040: ")
 
+current_time = datetime.utcnow().strftime("%Y%m%dT%H%M%S")
 try:
     r = requests.get(f" https://api.weather.gov/stations/{buoy_id}/observations/latest")
     r.raise_for_status()
